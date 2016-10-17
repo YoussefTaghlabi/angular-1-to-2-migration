@@ -4,11 +4,11 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
 
 ### Install
 
-* npm install
-* npm install nodemon -g
-* npm install karma-cli -g
-* npm start
-* Go to http://localhost:8801/
+* `npm install`
+* `npm install nodemon -g`
+* `npm install karma-cli -g`
+* `npm start`
+* Go to `http://localhost:8801/`
 
 ### Unit Test
 
@@ -16,8 +16,8 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
 
 ### Logins
 
-* Admin: joe@joe.com
-* User: bob@bob.com
+* Admin: `joe@joe.com`
+* User: `bob@bob.com`
 
 ## Phase 1: Angular 2 Prep
 
