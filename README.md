@@ -30,7 +30,14 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
     * Don't have to upgrade to 1.5: The upgrade support at least 1.3
     * Hybrid 2.0 apps can run with 1.3, 1.4 or 1.5
     * 1.5 introduces Components which is a step closer to 2.0
-* Step 3: All New Development with Components
+* **Step 3: All New Development with Components**
+    * Angular 1.5 Components are different than 2.0 
+        * Angular 1.5 Components are just syntactic sugar for Component Directives
+    * Isolate Scope is a really important part of Components:
+        * Gives us the possibility to treat Components as a different piece 
+        * Makes it easy to upgrade to Angular 2.0
+    * All new development will be done in 1.5 Components
+        * If can't upgrade to 1.5, and still using 1.3 or 1.4, use a [Component polyfill](https://github.com/toddmotto/angular-component)
 * Step 4: Switch Controllers to Components 
 * Step 5: Remove Incompatible Features from Directives
 * Step 6: Switch Component Directives to Components
