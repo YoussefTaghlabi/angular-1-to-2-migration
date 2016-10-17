@@ -6,7 +6,7 @@ angular.module('app').directive('sessionDetailWithVotes', function() {
       initialCollapsed: '@'
     },
     bindToController: true,
-    controllerAs: 'vm',
+    controllerAs: '$ctrl',
     controller: function() {
     }
   }

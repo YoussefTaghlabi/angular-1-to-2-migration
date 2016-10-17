@@ -4,7 +4,7 @@ angular.module('app').directive('nav', function() {
     templateUrl: '/nav/nav.html',
     scope: {
     },
-    controllerAs: "vm",
+    controllerAs: "$ctrl",
     bindToController: true,
     controller: function(currentIdentity, sessions, unreviewedSessionCount) {
       

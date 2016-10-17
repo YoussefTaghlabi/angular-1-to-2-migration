@@ -6,7 +6,7 @@ angular.module('app').directive('sessionDetail', function() {
       initialCollapsed: '@'
     },
     bindToController: true,
-    controllerAs: 'vm',
+    controllerAs: '$ctrl',
     controller: function() {
     }
   }
