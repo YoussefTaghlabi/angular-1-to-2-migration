@@ -12,7 +12,7 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
 
 ### Unit Test
 
-* npm test
+* `npm test`
 
 ### Logins
 
