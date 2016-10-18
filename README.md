@@ -2,21 +2,25 @@
 
 This Step by Step migration project is based on [Joe Eames angular migration class](https://app.pluralsight.com/library/courses/migrating-applications-angular-2), and on [Angular ugrade docs](https://angular.io/docs/ts/latest/guide/upgrade.html). 
 
-### Install
+## Install
 
 * `npm install`
 * `npm install nodemon -g`
 * `npm install karma-cli -g`
 * `npm start`
-* Go to `http://localhost:8801/`
 
-### Unit Test
+## Unit Test
 
 * `npm test`
 
-### Logins
+## Logins
 
-* Admin: `joe@joe.com`
+### Admin
+* Url: `http://localhost:8801/#/admin/login`
+* Admin: `joe@joe.com/<Any Password>`
+
+### User
+* Url: `http://localhost:8801/`
 * User: `bob@bob.com`
 
 ## Phase 1: Angular 2 Prep
@@ -38,7 +42,10 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
         * Makes it easy to upgrade to Angular 2.0
     * All new development will be done in 1.5 Components
         * If can't upgrade to 1.5, and still using 1.3 or 1.4, use a [Component polyfill](https://github.com/toddmotto/angular-component)
-* Step 4: Switch Controllers to Components 
+* **Step 4: Switch Controllers to Components**
+    * Components Advantages:
+        * Can be upgraded to 2.0
+        * Easier to maintain
 * Step 5: Remove Incompatible Features from Directives
 * Step 6: Switch Component Directives to Components
 * Step 7: Implement Manual Bootstrapping
