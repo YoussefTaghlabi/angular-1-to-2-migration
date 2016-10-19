@@ -52,7 +52,7 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
         * Requires less boilerplate code
         * Lifecycle hook methods `$onInit()`, `$onDestroy()`, and `$onChanges()` have nearly exact equivalents in Angular 2
         
-* Step 5: Remove Incompatible Features from Directives
+* **Step 5: Remove Incompatible Features from Directives**
     * `Compile` method
         * This will not be supported in Angular 2
     * `Replace` property
@@ -61,14 +61,19 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
     * `Terminal` & `Priority` properties
         * While Angular 1 components may use these, they are not used in Angular 2 and it is better not to write code that relies on them
         
-* Step 6: Switch Component Directives to Components
+* **Step 6: Switch Component Directives to Components**
     * There are three kinds of directives in Angular:
         * Component Directives - They are represented by elements and do have a template
         * Attribute Directives - They are represented by attributes and don’t have a template
         * Structural Directives — They change the DOM layout by adding and removing DOM elements
     * **Note:** We don’t have to modify `Attribute Directives` and `Structural Directives` since they are not upgradable to Angular 2.0 and need to be re-written
 
-* Step 7: Implement Manual Bootstrapping
+* **Step 7: Implement Manual Bootstrapping**
+    * Angular 2.0 uses manual bootstrapping
+    * Remove Directive Bootstrapping `ng-app`
+    * Don’t Bootstrap until the document has been rendered
+    * This is a mandatory step. We can't migrate to Angular 2 if this step is skipped
+      
 * Step 8: Add Typescript and a Build 
 * Step 9: Add ES6 
 * Step 10: Switch Controllers to ES6 classes
