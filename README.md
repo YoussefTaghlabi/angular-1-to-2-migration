@@ -30,10 +30,12 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
     * Use controllerAs View syntax
     * Use controllerAs with $ctrl (Optional)
         * Angular 1.5 uses controllerAs and the default for that is $ctrl
+        
 * **Step 2: Update to the Latest Version of Angular 1**
     * Don't have to upgrade to 1.5: The upgrade support at least 1.3
     * Hybrid 2.0 apps can run with 1.3, 1.4 or 1.5
     * 1.5 introduces Components which is a step closer to 2.0
+    
 * **Step 3: All New Development with Components**
     * Angular 1.5 Components are different than 2.0 
         * Angular 1.5 Components are just syntactic sugar for Component Directives
@@ -42,11 +44,22 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
         * Makes it easy to upgrade to Angular 2.0
     * All new development will be done in 1.5 Components
         * If can't upgrade to 1.5, and still using 1.3 or 1.4, use a [Component polyfill](https://github.com/toddmotto/angular-component)
+        
 * **Step 4: Switch Controllers to Components**
     * Components Advantages:
-        * Can be upgraded to 2.0
-        * Easier to maintain
+        * Much easier to migrate to Angular 2 than applications built with lower-level features like `ng-controller`, `ng-include`, and `scope` inheritance
+        * Requires less boilerplate code
+        * Lifecycle hook methods `$onInit()`, `$onDestroy()`, and `$onChanges()` have nearly exact equivalents in Angular 2
+        
 * Step 5: Remove Incompatible Features from Directives
+    * `Compile` method
+        * This will not be supported in Angular 2
+    * `Replace` property
+        * This feature has difficult semantics (e.g. how attributes are merged) and leads to more problems compared to what it solves
+        * Angular 2 never replaces a component element with the component template. This attribute is also deprecated in Angular 1
+    * `Terminal` & `Priority` properties
+        * While Angular 1 components may use these, they are not used in Angular 2 and it is better not to write code that relies on them
+        
 * Step 6: Switch Component Directives to Components
 * Step 7: Implement Manual Bootstrapping
 * Step 8: Add Typescript and a Build 

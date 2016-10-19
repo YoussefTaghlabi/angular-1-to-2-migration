@@ -9,7 +9,7 @@
     "test": "karma start"
   },
   "keywords": [],
-  "author": "joe eames",
+  "author": "Youssef Taghlabi based on Joe Eames lightning-voter-demo project",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.0",
