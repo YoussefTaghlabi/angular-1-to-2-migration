@@ -35,6 +35,7 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
     * Don't have to upgrade to 1.5: The upgrade support at least 1.3
     * Hybrid 2.0 apps can run with 1.3, 1.4 or 1.5
     * 1.5 introduces Components which is a step closer to 2.0
+    * Can upgrade using Bower or NPM
     
 * **Step 3: All New Development with Components**
     * Angular 1.5 Components are different than 2.0 
@@ -61,6 +62,12 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
         * While Angular 1 components may use these, they are not used in Angular 2 and it is better not to write code that relies on them
         
 * Step 6: Switch Component Directives to Components
+    * There are three kinds of directives in Angular:
+        * Component Directives - They are represented by elements and do have a template
+        * Attribute Directives - They are represented by attributes and don’t have a template
+        * Structural Directives — They change the DOM layout by adding and removing DOM elements
+    * **Note:** We don’t have to modify `Attribute Directives` and `Structural Directives` since they are not upgradable to Angular 2.0 and need to be re-written
+
 * Step 7: Implement Manual Bootstrapping
 * Step 8: Add Typescript and a Build 
 * Step 9: Add ES6 
@@ -70,3 +77,10 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
 ## Phase 2: Angular 2 Implementation 
 
 * TBD
+
+## Resources
+
+* [Angular: Upgrading From 1.X](https://angular.io/docs/ts/latest/guide/upgrade.html)
+* [Angular 1 and Angular 2 integration: the path to seamless upgrade](http://angularjs.blogspot.in/2015/08/angular-1-and-angular-2-coexistence.html)
+* [Angular 1 to Angular 2 Upgrade Strategy](https://docs.google.com/document/d/1xvBZoFuNq9hsgRhPPZOJC-Z48AHEbIBPlOCBTSD8m0Y)
+* [Joe Eames angular migration class](https://app.pluralsight.com/library/courses/migrating-applications-angular-2)
