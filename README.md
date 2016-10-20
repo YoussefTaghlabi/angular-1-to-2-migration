@@ -63,9 +63,9 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
         
 * **Step 6: Switch Component Directives to Components**
     * There are three kinds of directives in Angular:
-        * Component Directives - They are represented by elements and do have a template
-        * Attribute Directives - They are represented by attributes and don’t have a template
-        * Structural Directives — They change the DOM layout by adding and removing DOM elements
+        * `Component Directives` - They are represented by elements and do have a template
+        * `Attribute Directives` - They are represented by attributes and don’t have a template
+        * `Structural Directives` — They change the DOM layout by adding and removing DOM elements
     * **Note:** We don’t have to modify `Attribute Directives` and `Structural Directives` since they are not upgradable to Angular 2.0 and need to be re-written
 
 * **Step 7: Implement Manual Bootstrapping**
@@ -73,8 +73,24 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
     * Remove Directive Bootstrapping `ng-app`
     * Don’t Bootstrap until the document has been rendered
     * This is a mandatory step. We can't migrate to Angular 2 if this step is skipped
-      
-* Step 8: Add Typescript and a Build 
+          
+* **Step 8: Add Typescript and a Build**
+    * Typescript Advantages
+        * `Types` - Let us specify that a specific variable meets a specific contract
+        * `Classes` - Include a couple nice features like public and private constructor arguments
+        * `Interfaces` - Let us create complex contracts that our objects or functions need to meet
+    * Typescript Install
+        * `typescript`: `npm install typescript --save-dev`
+        * `typings`: `sudo npm install typings -g`
+        * Add `typescript` configuration [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+        * Add a script to `package.json` to transpile `ts` files to `js` files, output them in a new folder called `build` and watch them
+            * `"tsc": "tsc -p . -w --outDir build"`
+        * Install `typings` for each library used
+            * `typings install dt~jquery --global --save`
+            * `typings install dt~angular --global --save`
+            * `typings install dt~angular-route --global --save`
+            * `typings install dt~angular-mocks --global --save`
+            * `typings install dt~jasmine --global --save`
 * Step 9: Add ES6 
 * Step 10: Switch Controllers to ES6 classes
 * Step 11: Switch Services to ES6 classes
