@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./server/server.js",
     "dev": "nodemon ./server/server.js -w ./server",
-    "test": "karma start"
+    "test": "karma start",
+    "tsc": "tsc -p . -w --outDir build"
   },
   "keywords": [],
   "author": "Youssef Taghlabi based on Joe Eames lightning-voter-demo project",
@@ -27,6 +28,8 @@
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.3",
     "karma-jasmine": "^0.3.8",
-    "karma-ng-html2js-preprocessor": "^0.2.2"
+    "karma-ng-html2js-preprocessor": "^0.2.2",
+    "typescript": "^2.0.3",
+    "typings": "^1.4.0"
   }
 }
