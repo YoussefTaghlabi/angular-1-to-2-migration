@@ -1,6 +1,6 @@
 #Angular 1 to 2 Migration
 
-This Step by Step migration project is based on [Joe Eames angular migration class](https://app.pluralsight.com/library/courses/migrating-applications-angular-2), and on [Angular ugrade docs](https://angular.io/docs/ts/latest/guide/upgrade.html). 
+This Step by Step migration project is based on [Joe Eames angular migration approach](https://app.pluralsight.com/library/courses/migrating-applications-angular-2), and on [Angular ugrade docs](https://angular.io/docs/ts/latest/guide/upgrade.html). 
 
 ## Install
 
@@ -75,7 +75,7 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
     * This is a mandatory step. We can't migrate to Angular 2 if this step is skipped
           
 * **Step 8: Add Typescript and a Build**
-    * Typescript Advantages
+    * [Typescript Features](http://tutorialzine.com/2016/07/learn-typescript-in-30-minutes/)
         * `Types` - Let us specify that a specific variable meets a specific contract
         * `Classes` - Include a couple nice features like public and private constructor arguments
         * `Interfaces` - Let us create complex contracts that our objects or functions need to meet
@@ -91,7 +91,23 @@ This Step by Step migration project is based on [Joe Eames angular migration cla
             * `typings install dt~angular-route --global --save`
             * `typings install dt~angular-mocks --global --save`
             * `typings install dt~jasmine --global --save`
-* Step 9: Add ES6 
+* **Step 9: Add ES6**
+    * [ES6 Features](http://www.hichamelhammouchi.com/development/2015/10/01/learning-es6/)
+        * Let and const
+        * Spread Operator
+        * Default parameters
+        * Template strings
+        * Object initializer (or literal)
+        * Arrows
+        * Destructuring
+        * Symbols
+        * Iterators
+        * Generators
+        * Collections
+        * Proxy
+        * Promises
+        * Classes
+        * New Built-in Methods
 * Step 10: Switch Controllers to ES6 classes
 * Step 11: Switch Services to ES6 classes
 
