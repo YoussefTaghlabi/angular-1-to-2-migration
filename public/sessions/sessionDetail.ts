@@ -4,5 +4,7 @@ angular.module('app').component('sessionDetail', {
     session: '=',
     initialCollapsed: '@'
   },
-  controller: function() {}
+  controller: class sessionDetailCtrl {
+    constructor() {}
+  }
 })

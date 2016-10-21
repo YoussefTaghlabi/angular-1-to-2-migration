@@ -4,5 +4,7 @@ angular.module('app').component('sessionDetailWithVotes', {
     session: '=',
     initialCollapsed: '@'
   },
-  controller: function() {}
+  controller: class sessionDetailCtrl {
+    constructor() {}
+  }
 })

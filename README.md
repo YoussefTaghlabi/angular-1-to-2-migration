@@ -108,7 +108,11 @@ This Step by Step migration project is based on [Joe Eames angular migration app
         * Promises
         * Classes
         * New Built-in Methods
-* Step 10: Switch Controllers to ES6 classes
+        
+* **Step 10: Switch Controllers to ES6 classes**
+    * `classes` are cleaner and easier to read
+    * Switching `controllers` to `classes` won't pay off for now. But we will see the benefits once we switch to Angular 2
+
 * Step 11: Switch Services to ES6 classes
 
 ## Phase 2: Angular 2 Implementation 

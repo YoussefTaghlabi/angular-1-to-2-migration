@@ -5,11 +5,16 @@ angular.module('app').component('detailPanel', {
       title: '@',
       initialCollapsed: '@collapsed'
     },
-    controller: function() {
-      this.collapsed = (this.initialCollapsed === 'true');
+    controller: class detailPanelCtrl {
+        collapsed: boolean;
+        initialCollapsed: boolean;
 
-      this.collapse = function() {
-        this.collapsed = !this.collapsed;
-      }
+        constructor() {
+            this.collapsed = (this.initialCollapsed === true);
+        }
+
+        collapse() {
+            this.collapsed = !this.collapsed;
+        }
     }
 })

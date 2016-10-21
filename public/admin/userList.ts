@@ -3,14 +3,18 @@ angular.module('app').component('userList', {
   bindings: {
     allUsers: '='
   },
-  controller: function() {
+  controller: class userListCtrl {
+    allUsers: any;
+    users: any;
 
-    this.allUsers.sort(function(user1, user2) {
-      if(user1.firstName < user2.firstName) return -1;
-      if(user1.firstName === user2.firstName) return 0;
-      if(user1.firstName > user2.firstName) return 1;
-    })
+    constructor() {
+      this.allUsers.sort((user1: any, user2: any) => {
+        if(user1.firstName < user2.firstName) return -1;
+        if(user1.firstName === user2.firstName) return 0;
+        if(user1.firstName > user2.firstName) return 1;
+      })
 
-    this.users = this.allUsers;
+      this.users = this.allUsers;
+    }
   }
 })

@@ -1,31 +1,30 @@
 
-app.config(function($routeProvider) {
-  var routeResolvers = {
-    loggedIn: function(auth) {
+app.config(($routeProvider) => {
+  let routeResolvers = {
+    loggedIn: (auth) => {
       return auth.requireLogin();
     },
-    waitForAuth: function(auth) {
+    waitForAuth: (auth) => {
       return auth.waitForAuth();
     },
-    requireAdmin: function(auth) {
+    requireAdmin: (auth) => {
       return auth.requireAdmin();
     },
-    userSessions: function(sessions, currentIdentity, auth) {
-      return auth.requireLogin().then(function() {
+    userSessions: (sessions, currentIdentity, auth) => {
+      return auth.requireLogin().then(() => {
         return sessions.getSessionsByUser(currentIdentity.currentUser.id);
       });
     },
-    allSessions: function(sessions, auth) {
-      return auth.requireLogin().then(function() {
+    allSessions: (sessions, auth) => {
+      return auth.requireLogin().then(() => {
         return sessions.getAllSessions();
       });
     },
-    allUsers: function(users, auth) {
-      return auth.requireLogin().then(function() {
+    allUsers: (users, auth) => {
+      return auth.requireLogin().then(() => {
         return users.getAllUsers();
       });
     }
-    
   }
   
   $routeProvider

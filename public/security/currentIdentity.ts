@@ -1,25 +1,24 @@
-angular.module('app').factory('currentIdentity', function($http, $q) {
+angular.module('app').factory('currentIdentity', ($http, $q) => {
   return {
     currentUser: null,
     
-    setUser: function(user) {
+    setUser(user) {
       this.currentUser = user;
     },
-    clearUser: function() {
+    clearUser() {
       this.currentUser = null;
     },
-    authenticated: function() {
+    authenticated() {
       return !!this.currentUser;
     },
-    updateUser: function(newUserObj) {
-      var dfd = $q.defer();
-      
-      
-      $http.put('/api/users/' + this.currentUser.id, newUserObj).then(function(response) {
+    updateUser(newUserObj) {
+      let dfd = $q.defer();
+
+      $http.put(`/api/users/${this.currentUser.id}`, newUserObj).then(() => {
         this.currentUser.firstName = newUserObj.firstName;
         this.currentUser.lastName = newUserObj.lastName;
         dfd.resolve();
-      }.bind(this), function(response) {
+      }, () => {
         dfd.reject("Error Logging Out");
       })
       return dfd.promise;
