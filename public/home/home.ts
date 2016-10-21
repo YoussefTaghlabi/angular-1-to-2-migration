@@ -3,39 +3,45 @@ angular.module('app').component('home', {
   bindings: {
     userSessions: '='
   },
-  controller: function(currentIdentity, sessions, toastr, unreviewedSessionCount) {
-    this.currentUser = currentIdentity.currentUser
+  controller: class homeCtrl {
+      currentUser: any;
+      currentSessionToReview: any;
 
-    this.setNextSessionToReview = function() {
-      sessions.getNextUnreviewedSession(currentIdentity.currentUser.id).then(function(response) {
-        this.currentSessionToReview = response.data;
-      }.bind(this))
-    }
-    this.setNextSessionToReview();
+      constructor (
+          public currentIdentity: any,
+          public sessions: any,
+          public toastr: any,
+          public unreviewedSessionCount: any
+      ) {
+        this.currentUser = currentIdentity.currentUser
 
+        this.setNextSessionToReview();
+      }
 
-    this.voteYes = function() {
-      sessions.incrementVote(this.currentSessionToReview.id)
-          .then(function() {
-            return sessions.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id)
-          }.bind(this))
-          .then(function() {
-            this.setNextSessionToReview();
+      setNextSessionToReview() {
+          this.sessions.getNextUnreviewedSession(this.currentIdentity.currentUser.id).then((response) => {
+              this.currentSessionToReview = response.data;
+          })
+      }
 
-            // pull updated value
-            unreviewedSessionCount.updateUnreviewedSessionCount();
-          }.bind(this))
-    }
+      voteYes() {
+          this.sessions.incrementVote(this.currentSessionToReview.id)
+              .then(() => this.sessions.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id))
+              .then(() => {
+                  this.setNextSessionToReview();
 
-    this.voteNo = function() {
-      sessions.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id)
-          .then(function() {
-            this.setNextSessionToReview();
+                  // pull updated value
+                  this.unreviewedSessionCount.updateUnreviewedSessionCount();
+              })
+      }
 
-            // pull updated value
-            unreviewedSessionCount.updateUnreviewedSessionCount();
-          }.bind(this))
-    }
+      voteNo() {
+          this.sessions.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id).then(() => {
+              this.setNextSessionToReview();
+
+              // pull updated value
+              this.unreviewedSessionCount.updateUnreviewedSessionCount();
+          })
+      }
   }
-
 })

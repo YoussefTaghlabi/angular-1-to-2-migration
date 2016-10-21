@@ -1,5 +1,3 @@
-angular.module('app').filter('talkDuration', function() {
-    return function(duration) {
-        return "Duration: " + duration + " minutes";
-    }
+angular.module('app').filter('talkDuration', () => {
+    return (duration: string) => `Duration: ${duration} minutes`;
 })

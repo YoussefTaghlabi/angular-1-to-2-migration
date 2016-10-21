@@ -3,10 +3,14 @@ angular.module('app').component('userDetails', {
   bindings: {
     allUsers: '='
   },
-  controller: function($routeParams) {
+  controller: class userDetailsCtrl {
+    user: any;
+    allUsers: any;
 
-    this.user = this.allUsers.find(function(user) {
-      return user.id === parseInt($routeParams.id);
-    })
+    constructor (private $routeParams: any) {
+      this.user = this.allUsers.find((user: any) => {
+        return user.id === parseInt($routeParams.id);
+      })
+    }
   }
 })

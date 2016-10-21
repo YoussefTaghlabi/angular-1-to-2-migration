@@ -5,13 +5,17 @@ angular.module('app').component('unreviewedTalk', {
     voteYes: '&',
     voteNo: '&'
   },
-  controller: function() {
+  controller: class unreviewedTalkCtrl {
+    voteYes: () => {};
+    voteNo: () => {};
 
-    this.yes = function() {
+    constructor() {}
+
+    yes() {
       this.voteYes();
     }
 
-    this.no = function() {
+    no() {
       this.voteNo();
     }
   }

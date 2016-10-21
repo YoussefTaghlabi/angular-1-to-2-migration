@@ -1,20 +1,28 @@
 angular.module('app').component('login', {
   templateUrl: 'security/login.html',
   bindings: {},
-  controller: function($location, currentIdentity, auth, toastr) {
+  controller: class LoginCtrl {
+    email: string;
 
-    if(currentIdentity.authenticated()) {
-      $location.path('/home');
+    constructor (
+      public $location: any,
+      public currentIdentity: any,
+      public auth: any,
+      public toastr: any
+    ) {
+      if (currentIdentity.authenticated()) {
+        $location.path('/home');
+      }
     }
 
-    this.login = function() {
-      auth.login({
+    login() {
+      this.auth.login({
         username: this.email,
         password: "pass"
-      }).then(function() {
-        $location.path('/home');
-      }, function(err) {
-        toastr.error(err);
+      }).then(() => {
+        this.$location.path('/home');
+      }, (err) => {
+        this.toastr.error(err);
       })
     }
   }

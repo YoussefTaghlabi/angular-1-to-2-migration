@@ -1,21 +1,31 @@
 angular.module('app').component('adminLogin', {
   templateUrl: 'admin/adminLogin.html',
   bindings: {}, // Same as scope
-  controller: function($location, currentIdentity, auth, toastr) {
+  controller: class adminLoginCtrl {
+    loggedIn: any;
+    email: string;
+    password: string;
 
-    this.loggedIn = currentIdentity.authenticated();
-    if(this.loggedIn) {
-      $location.path('/home');
+    constructor (
+      public $location: any,
+      public currentIdentity: any,
+      public auth: any,
+      public toastr: any
+    ) {
+      this.loggedIn = currentIdentity.authenticated();
+      if(this.loggedIn) {
+        this.$location.path('/home');
+      }
     }
 
-    this.login = function() {
-      auth.login({
+    login() {
+      this.auth.login({
         username: this.email,
         password: this.password
-      }).then(function() {
-        $location.path('/home');
-      }, function(err) {
-        toastr.error(err);
+      }).then(() => {
+        this.$location.path('/home');
+      }, (err) => {
+        this.toastr.error(err);
       })
     }
   }

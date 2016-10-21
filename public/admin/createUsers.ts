@@ -1,22 +1,30 @@
 angular.module('app').component('createUsers', {
     templateUrl: 'admin/createUsers.html',
     bindings: {},
-    controller: function(parseNames, users, toastr) {
+    controller: class createUsersCtrl {
+        namesblob: any;
 
-        this.import = function() {
-            var people = parseNames(this.namesblob);
-            people.forEach((function(person) {
-                users.createNewUser({
+        constructor (
+            public parseNames: (namesblob: string) => [{}],
+            public users: any,
+            public toastr: any
+        ) {
+        }
+
+        import() {
+            let people = this.parseNames(this.namesblob);
+            people.forEach(((person: any) => {
+                this.users.createNewUser({
                     email: person.email,
                     password: "pass",
                     firstName: person.firstName,
                     lastName: person.lastName
-                }).catch(function(error) {
-                    toastr.error("User already exists: " + person.email)
-                }.bind(this))
-            }).bind(this));
+                }).catch((error: any) => {
+                    this.toastr.error("User already exists: " + person.email)
+                })
+            }));
 
-            toastr.success("Users Created!")
+            this.toastr.success("Users Created!")
         }
     }
 })

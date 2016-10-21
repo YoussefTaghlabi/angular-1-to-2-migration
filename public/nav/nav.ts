@@ -1,10 +1,18 @@
 angular.module('app').component('nav',  {
   templateUrl: '/nav/nav.html',
   bindings: {},
-  controller: function(currentIdentity, sessions, unreviewedSessionCount) {
-    this.currentUser = currentIdentity.currentUser;
+  controller: class navCtrl {
+    currentUser: any;
 
-    unreviewedSessionCount.updateUnreviewedSessionCount();
-    this.unreviewedSessionCount = unreviewedSessionCount;
+    constructor (
+      public currentIdentity: any,
+      public sessions: any,
+      public unreviewedSessionCount: any
+    ) {
+      this.currentUser = currentIdentity.currentUser;
+
+      unreviewedSessionCount.updateUnreviewedSessionCount();
+      this.unreviewedSessionCount = unreviewedSessionCount;
+    }
   }
-});
+})

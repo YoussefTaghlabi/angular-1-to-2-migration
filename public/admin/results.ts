@@ -3,12 +3,17 @@ angular.module('app').component('results', {
   bindings: {
     allSessions: '=' // 2 way bindings
   },
-  controller: function() {
-    this.allSessions.sort(function(session1, session2) {
-      // reverse order
-      return session2.voteCount - session1.voteCount;
-    })
+  controller: class resultsCtrl {
+    allSessions: any;
+    sessionsByVoteDesc: any;
 
-    this.sessionsByVoteDesc = this.allSessions;
+    constructor() {
+      this.allSessions.sort((session1: any, session2: any) => {
+        // reverse order
+        return session2.voteCount - session1.voteCount;
+      })
+
+      this.sessionsByVoteDesc = this.allSessions;
+    }
   }
 })

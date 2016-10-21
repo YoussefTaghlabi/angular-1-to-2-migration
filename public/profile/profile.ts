@@ -1,18 +1,24 @@
 angular.module('app').component('profile', {
   templateUrl: 'profile/profile.html',
   bindings: {},
-  controller: function($location, toastr, currentIdentity) {
+  controller: class profileCtrl {
+    profile: any;
 
-    this.profile = angular.copy(currentIdentity.currentUser);
-
-    this.save = function() {
-      currentIdentity.updateUser(this.profile);
-      toastr.success('Profile Saved!');
+    constructor (
+      public $location: any,
+      public toastr: any,
+      public currentIdentity: any
+    ) {
+      this.profile = angular.copy(this.currentIdentity.currentUser);
     }
 
-    this.cancel = function() {
-      $location.path('/home');
+    save() {
+      this.currentIdentity.updateUser(this.profile);
+      this.toastr.success('Profile Saved!');
     }
 
+    cancel() {
+      this.$location.path('/home');
+    }
   }
 })

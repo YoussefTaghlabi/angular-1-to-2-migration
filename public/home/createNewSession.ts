@@ -3,21 +3,32 @@ angular.module('app').component('createNewSession', {
   bindings: {
     userSessions: '='
   },
-  controller: function(toastr, currentIdentity, sessions) {
-    this.create = function() {
-      var newUserSession = {
+  controller: class createNewSessionCtrl {
+    title: any;
+    length: any;
+    abstract: any;
+    userSessions: any;
+
+    constructor (
+        public toastr: any,
+        public currentIdentity: any,
+        public sessions: any
+    ) {}
+
+    create() {
+      let newUserSession = {
         title: this.title,
         length: parseInt(this.length),
         abstract: this.abstract,
-        userFirstName: currentIdentity.currentUser.firstName,
-        userLastName: currentIdentity.currentUser.lastName,
-        userId: currentIdentity.currentUser.id,
+        userFirstName: this.currentIdentity.currentUser.firstName,
+        userLastName: this.currentIdentity.currentUser.lastName,
+        userId: this.currentIdentity.currentUser.id,
       }
 
-      sessions.createNewSession(newUserSession).then(function(response) {
+      this.sessions.createNewSession(newUserSession).then((response) => {
         console.log(response);
         this.userSessions.push(response.data);
-      }.bind(this))
+      })
     }
   }
 })
