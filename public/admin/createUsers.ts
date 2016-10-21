@@ -5,14 +5,14 @@ angular.module('app').component('createUsers', {
         namesblob: any;
 
         constructor (
-            public parseNames: (namesblob: string) => [{}],
+            public nameParser: any,
             public users: any,
             public toastr: any
         ) {
         }
 
         import() {
-            let people = this.parseNames(this.namesblob);
+            let people = this.nameParser.parse(this.namesblob);
             people.forEach(((person: any) => {
                 this.users.createNewUser({
                     email: person.email,
