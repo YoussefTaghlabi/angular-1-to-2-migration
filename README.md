@@ -113,7 +113,10 @@ This Step by Step migration project is based on [Joe Eames angular migration app
     * `classes` are cleaner and easier to read
     * Switching `controllers` to `classes` won't pay off for now. But we will see the benefits once we switch to Angular 2
 
-* Step 11: Switch Services to ES6 classes
+* **Step 11: Switch Services to ES6 classes**
+    * Switch from using `factory` to `service`
+        * When using `factory`, whatever its 2nd argument returns becomes the `service`
+        * When using `service`, `new` is called on its 2nd argument and becomes the `service`
 
 ## Phase 2: Angular 2 Implementation 
 
