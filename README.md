@@ -35,6 +35,7 @@ This Step by Step migration project is based on [Joe Eames angular migration app
     * Don't have to upgrade to 1.5: The upgrade support at least 1.3
     * Hybrid 2.0 apps can run with 1.3, 1.4 or 1.5
     * 1.5 introduces Components which is a step closer to 2.0
+    * 1.5 introduces one way data binding (<): `bindings: { oneWay: '<', twoWay: '='}`
     * Can upgrade using Bower or NPM
     
 * **Step 3: All New Development with Components**
@@ -45,6 +46,7 @@ This Step by Step migration project is based on [Joe Eames angular migration app
         * Makes it easy to upgrade to Angular 2.0
     * All new development will be done in 1.5 Components
         * If can't upgrade to 1.5, and still using 1.3 or 1.4, use a [Component polyfill](https://github.com/toddmotto/angular-component)
+            * **The polyfill** introduces the `component` method, but **doesn't introduce one way data binding** 
         
 * **Step 4: Switch Controllers to Components**
     * Components Advantages:
@@ -60,6 +62,7 @@ This Step by Step migration project is based on [Joe Eames angular migration app
         * Angular 2 never replaces a component element with the component template. This attribute is also deprecated in Angular 1
     * `Terminal` & `Priority` properties
         * While Angular 1 components may use these, they are not used in Angular 2 and it is better not to write code that relies on them
+    * `link`
         
 * **Step 6: Switch Component Directives to Components**
     * There are three kinds of directives in Angular:
@@ -79,6 +82,8 @@ This Step by Step migration project is based on [Joe Eames angular migration app
         * `Types` - Let us specify that a specific variable meets a specific contract
         * `Classes` - Include a couple nice features like public and private constructor arguments
         * `Interfaces` - Let us create complex contracts that our objects or functions need to meet
+        * `Decorators` - A Decorator is a special kind of declaration that can be attached to a `class declaration`, `method`, `accessor`, `property`, or `parameter`
+    * Angular 2 relies heavily on `Decorators` and `Types`
     * Typescript Install
         * `typescript`: `npm install typescript --save-dev`
         * `typings`: `sudo npm install typings -g`
@@ -114,17 +119,39 @@ This Step by Step migration project is based on [Joe Eames angular migration app
     * Switching `controllers` to `classes` won't pay off for now. But we will see the benefits once we switch to Angular 2
 
 * **Step 11: Switch Services to ES6 classes**
-    * Switch from using `factory` to `service`
+    * Switch from using `factory` to `service` (Lowest hanging fruits in most cases)
         * When using `factory`, whatever its 2nd argument returns becomes the `service`
         * When using `service`, `new` is called on its 2nd argument and becomes the `service`
+            * `service` expects a `constructor` as its 2nd argument
 
 ## Phase 2: Angular 2 Implementation 
 
-* TBD
+* **Step 1: Learn about Observables**
+    * - [Observables](http://blog.angular-university.io/functional-reactive-programming-for-angular-2-developers-rxjs-and-observables/) Vs Promises
+        * Observables deal with data like Arrays do
+        * Observables are cancellable 
+        * Observables can define both the setup and teardown aspects of Async behavior
+        * Observables can be retried using retry and retryWhen
+        * Observables open a continuous channel of communication
+
+## Terminology 
+
+* **Port** - Convert code from Angular 1 to Angular 2
+    * Act of converting Angular 1 code to Angular 2
+* **Downgrade** - Let Angular 2 code work in Angular 1
+    * Use Angular 2 services or components in Angular 1 applications
+    * Uses one of the `upgradeAdapter` singleton’s `downgradeNg2Provider` or `downgradeNg2Component` methods
+* **Upgrade** - Let Angular 1 code work in Angular 2
+    * Use Angular 1 services or components in Angular 2
+    * Doesn’t mean port or convert these components to Angular 2
+        * Only allows them to be used in Angular 2
+    * Uses one of the `upgradeAdapter` singleton’s `upgradeNg1Provider` or `downgradeNg1Component` methods
+    * Upgraded components and services still need to be registered with Angular 1.x
 
 ## Resources
 
 * [Angular: Upgrading From 1.X](https://angular.io/docs/ts/latest/guide/upgrade.html)
 * [Angular 1 and Angular 2 integration: the path to seamless upgrade](http://angularjs.blogspot.in/2015/08/angular-1-and-angular-2-coexistence.html)
 * [Angular 1 to Angular 2 Upgrade Strategy](https://docs.google.com/document/d/1xvBZoFuNq9hsgRhPPZOJC-Z48AHEbIBPlOCBTSD8m0Y)
-* [Joe Eames angular migration class](https://app.pluralsight.com/library/courses/migrating-applications-angular-2)
+* [Joe Eames angular migration](https://app.pluralsight.com/library/courses/migrating-applications-angular-2)
+* [Rangle.io: How to Start Using Angular 2 with Your Angular 1.X Code Base](https://www.youtube.com/watch?v=ucUy0CoN57Q): 
