@@ -62,7 +62,6 @@ This Step by Step migration project is based on [Joe Eames angular migration app
         * Angular 2 never replaces a component element with the component template. This attribute is also deprecated in Angular 1
     * `Terminal` & `Priority` properties
         * While Angular 1 components may use these, they are not used in Angular 2 and it is better not to write code that relies on them
-    * `link`
         
 * **Step 6: Switch Component Directives to Components**
     * There are three kinds of directives in Angular:
@@ -127,12 +126,19 @@ This Step by Step migration project is based on [Joe Eames angular migration app
 ## Phase 2: Angular 2 Implementation 
 
 * **Step 1: Learn about Observables**
-    * - [Observables](http://blog.angular-university.io/functional-reactive-programming-for-angular-2-developers-rxjs-and-observables/) Vs Promises
+    * [Observables](http://blog.angular-university.io/functional-reactive-programming-for-angular-2-developers-rxjs-and-observables/) Vs Promises
         * Observables deal with data like Arrays do
         * Observables are cancellable 
         * Observables can define both the setup and teardown aspects of Async behavior
         * Observables can be retried using retry and retryWhen
         * Observables open a continuous channel of communication
+        
+* **Step 2: Get familiar with [Angular 2](http://learnangular2.com/)**
+    * Angular 1 is MVC based
+        * Uses promises
+    * Angular 2 is Component based
+        * Relies on [RxJs](http://reactivex.io/documentation/observable.html) to provide Observables
+    * [Angular 1 to 2 Quick Ref](https://angular.io/docs/ts/latest/cookbook/a1-a2-quick-reference.html)
 
 ## Terminology 
 
