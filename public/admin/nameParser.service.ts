@@ -1,3 +1,5 @@
+import * as angular from 'angular'
+
 class NameParser {
   parse(blobInput: any) {
     let lines = blobInput.split(/\r?\n/);

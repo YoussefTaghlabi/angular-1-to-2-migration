@@ -1,3 +1,5 @@
+import * as angular from 'angular'
+
 class detailPanelCtrl {
     collapsed: boolean;
     initialCollapsed: boolean;

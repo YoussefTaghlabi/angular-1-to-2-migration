@@ -1,3 +1,5 @@
+import * as angular from 'angular'
+
 class Auth {
   constructor (
       public $q: any,
