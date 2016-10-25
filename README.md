@@ -5,13 +5,10 @@ This Step by Step migration project is based on [Joe Eames angular migration app
 ## Install
 
 * `npm install`
-* `npm install nodemon -g`
 * `npm install karma-cli -g`
-* `npm start`
-
-## Unit Test
-
-* `npm test`
+* Start build: `npm run build`
+* Start server: `npm start`
+* Start unit test: `npm test`
 
 ## Logins
 
@@ -23,7 +20,7 @@ This Step by Step migration project is based on [Joe Eames angular migration app
 * Url: `http://localhost:8801/`
 * User: `bob@bob.com`
 
-## Phase 1: Angular 2 Prep
+## Phase 1: Code Prep
 
 * **Step 1: Follow [the style guide](https://github.com/johnpapa/angular-styleguide/tree/master/a1) **   
     * Single Responsibility: Every Object should be on its own file     
@@ -123,7 +120,7 @@ This Step by Step migration project is based on [Joe Eames angular migration app
         * When using `service`, `new` is called on its 2nd argument and becomes the `service`
             * `service` expects a `constructor` as its 2nd argument
 
-## Phase 2: Angular 2 Implementation 
+## Phase 2: Educate 
 
 * **Step 1: Learn about Observables**
     * [Observables](http://blog.angular-university.io/functional-reactive-programming-for-angular-2-developers-rxjs-and-observables/) Vs Promises
@@ -139,6 +136,17 @@ This Step by Step migration project is based on [Joe Eames angular migration app
     * Angular 2 is Component based
         * Relies on [RxJs](http://reactivex.io/documentation/observable.html) to provide Observables
     * [Angular 1 to 2 Quick Ref](https://angular.io/docs/ts/latest/cookbook/a1-a2-quick-reference.html)
+    
+* **Step 3: Introduce a module bundler: [webpack](https://webpack.github.io/docs/tutorials/getting-started/)**
+    * No need for `gulp` or `grunt`
+    * Webpack lets you put your static assets (and source code) in a true dependency graph
+        * Easier code splitting
+        * Stable production deploys
+        * control how assets are processed
+        
+## Phase 3: Angular 2 Implementation 
+
+TBD     
 
 ## Terminology 
 

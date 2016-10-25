@@ -1,4 +1,4 @@
-angular.module('app').service('users', class Users {
+class Users {
   constructor(public $http: any, public $q: any) {}
 
   createNewUser(newUser) {
@@ -14,4 +14,7 @@ angular.module('app').service('users', class Users {
 
     return dfd.promise;
   }
-})
+}
+
+export default angular.module('app.users', [])
+    .service('users', Users)

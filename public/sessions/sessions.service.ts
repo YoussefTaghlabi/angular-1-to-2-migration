@@ -1,4 +1,4 @@
-angular.module('app').service('sessions', class Sessions {
+class Sessions {
   constructor(public $http: any, public $q: any) {}
 
   getSessionsByUser(userId) {
@@ -42,4 +42,7 @@ angular.module('app').service('sessions', class Sessions {
   getUnreviewedCount(userId) {
     return this.$http.get(`/api/users/${userId}/unreviewedSessionCount`);
   }
-})
+}
+
+export default angular.module('app.sessions', [])
+  .service('sessions', Sessions)

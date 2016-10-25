@@ -1,5 +1,4 @@
-
-app.config(($routeProvider) => {
+export default ($routeProvider) => {
   let routeResolvers = {
     loggedIn: (auth) => {
       return auth.requireLogin();
@@ -26,7 +25,7 @@ app.config(($routeProvider) => {
       });
     }
   }
-  
+
   $routeProvider
     .when('/admin/login', {
       template: '<admin-login></admin-login>',
@@ -90,4 +89,4 @@ app.config(($routeProvider) => {
       template: '<logout></logout>'
     })
     .otherwise('/home')
-})
+}

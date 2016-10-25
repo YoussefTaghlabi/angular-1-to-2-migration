@@ -1,5 +1,4 @@
-import construct = Reflect.construct;
-angular.module('app').service('currentIdentity', class CurrentIdentity {
+class CurrentIdentity {
   currentUser: any;
 
   constructor(public $http: any, public $q: any) {
@@ -30,5 +29,7 @@ angular.module('app').service('currentIdentity', class CurrentIdentity {
     })
     return dfd.promise;
   }
+}
 
-});
+export default angular.module('app.currentIdentity', [])
+  .service('currentIdentity', CurrentIdentity);
