@@ -1,4 +1,4 @@
-angular.module('app').service('auth', class Auth {
+class Auth {
   constructor (
       public $q: any,
       public $http: any,
@@ -61,4 +61,7 @@ angular.module('app').service('auth', class Auth {
       }
     })
   }
-})
+}
+
+export default angular.module('app.auth', [])
+    .service('auth', Auth)

@@ -1,4 +1,4 @@
-angular.module('app').service('unreviewedSessionCount', class UnreviewedSessionCount {
+class UnreviewedSessionCount {
   value: any;
 
   constructor(public sessions: any, public currentIdentity: any) {}
@@ -8,4 +8,7 @@ angular.module('app').service('unreviewedSessionCount', class UnreviewedSessionC
       this.value = response.data.count;
     })
   }
-})
+}
+
+export default angular.module('app.unreviewedSessionCount', [])
+  .service('unreviewedSessionCount', UnreviewedSessionCount)

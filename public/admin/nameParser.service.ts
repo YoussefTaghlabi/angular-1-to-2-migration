@@ -1,4 +1,4 @@
-angular.module('app').service('nameParser', class NameParser {
+class NameParser {
   parse(blobInput: any) {
     let lines = blobInput.split(/\r?\n/);
     lines.forEach((line, idx) => {
@@ -11,4 +11,7 @@ angular.module('app').service('nameParser', class NameParser {
     })
     return lines;
   }
-})
+}
+
+export default angular.module('app.nameParser', [])
+    .service('nameParser', NameParser)
