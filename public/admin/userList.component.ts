@@ -1,3 +1,5 @@
+import * as angular from 'angular'
+
 class userListCtrl {
   allUsers: any;
   users: any;

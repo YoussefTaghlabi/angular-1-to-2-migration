@@ -1,3 +1,5 @@
+import * as angular from 'angular'
+
 class Users {
   constructor(public $http: any, public $q: any) {}
 

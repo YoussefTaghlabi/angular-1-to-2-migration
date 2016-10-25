@@ -1,3 +1,5 @@
+import * as angular from 'angular'
+
 class createNewSessionCtrl {
   title: any;
   length: any;

@@ -1,3 +1,5 @@
+import * as angular from 'angular'
+
 class CurrentIdentity {
   currentUser: any;
 

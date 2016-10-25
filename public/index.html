@@ -8,25 +8,21 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
   <!-- 3rd party -->
-  <script src="/vendor/jquery.min.js"></script>
-  <script src="/vendor/1.5.5/angular.min.js"></script>
-  <script src="/vendor/1.5.5/angular-route.min.js"></script>
-  <script src="/vendor/toastr.min.js"></script>
+  <script src="/vendors.bundle.js"></script>
   <script>
     (function(orig) {
       angular.modules = [];
       angular.module = function() {
-        if (arguments.length > 1) {
+        if (arguments.length) {
           angular.modules.push(arguments[0]);
         }
         return orig.apply(null, arguments);
       }
     })(angular.module);
   </script>
-
+  <script src="app.bundle.js"></script>
 </head>
 <body class="container">
   <ng-view></ng-view>
-  <script src="bundle.js"></script>
 </body>
 </html>
