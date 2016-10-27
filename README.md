@@ -120,7 +120,7 @@ This Step by Step migration project is based on [Joe Eames angular migration app
         * When using `service`, `new` is called on its 2nd argument and becomes the `service`
             * `service` expects a `constructor` as its 2nd argument
 
-## Phase 2: Educate 
+## Phase 2: Learn, Learn, Learn
 
 * **Step 1: Learn about Observables**
     * [Observables](http://blog.angular-university.io/functional-reactive-programming-for-angular-2-developers-rxjs-and-observables/) Vs Promises
@@ -142,11 +142,41 @@ This Step by Step migration project is based on [Joe Eames angular migration app
     * Webpack lets you put your static assets (and source code) in a true dependency graph
         * Easier code splitting
         * Stable production deploys
-        * control how assets are processed
+        * Control how assets are processed
+    * Upgrade to `typescript 2`: `npm install typescript@2.0 --save-dev`
+        * Remove `typings` as it is no longer needed as of `typescript 2`. Evertyhing is now done through `package.json`
+           * `npm uninstall typings --save-dev`
+    * Install `webpack ts-loader` to transpile ts files to js files: `npm install ts-loader --save-dev`
         
 ## Phase 3: Angular 2 Implementation 
 
-TBD     
+* **Step 1: Install angular 2 and its dependencies**
+```javascript
+    "dependencies": {
+        "@angular/common": "~2.1.1",
+        "@angular/compiler": "~2.1.1",
+        "@angular/core": "~2.1.1",
+        "@angular/forms": "~2.1.1",
+        "@angular/http": "~2.1.1",
+        "@angular/platform-browser": "~2.1.1",
+        "@angular/platform-browser-dynamic": "~2.1.1",
+        "@angular/router": "~3.1.1",
+        "@angular/upgrade": "~2.1.1",
+        "core-js": "^2.4.1",
+        "reflect-metadata": "^0.1.8",
+        "rxjs": "5.0.0-beta.12",
+        "zone.js": "^0.6.25"
+    },
+    "devDependencies": {
+        "@types/core-js": "^0.9.34",
+        "@types/node": "^6.0.45",
+        "typescript": "^2.0.3"
+    }
+```
+
+* Step 2: Bootstrapping
+* Step 3: Identifying Services to port 
+* Step 4: Identifying Components to port 
 
 ## Terminology 
 
