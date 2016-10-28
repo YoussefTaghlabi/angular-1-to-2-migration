@@ -174,7 +174,16 @@ This Step by Step migration project is based on [Joe Eames angular migration app
     }
 ```
 
-* Step 2: Bootstrapping
+* **Step 2: Bootstrapping and UpgradeAdapter**
+    * Components and Services managed by one framework can interoperate with those from the other framework. This happens in three main areas:
+        * **Dependency Injection** - Exposing Angular 2 services into Angular 1 components and vice-versa.
+        * **Component Nesting**- Angular 1 directives can be used in Angular 2 components and Angular 2 components can used Angular 1 directives
+        * **Change Detection** - Angular 1 scope digest and change detectors in Angular 2 are interleaved
+    * We’ll be bootstrapping in the browser, as Angular 2 also lets us bootstrap in a WebWorker and on the Server
+        * Use upgradeAdapter to upgrade to 2
+            * Create an upgradeAdapter singleton
+        * Manually bootstrap Angular 1 (no more ng-app, we took care of this in Phase 1: Step 7)
+
 * Step 3: Identifying Services to port 
 * Step 4: Identifying Components to port 
 
