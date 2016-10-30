@@ -1,6 +1,4 @@
-import * as angular from 'angular'
-
-class Users {
+export class UsersService {
   constructor(public $http: any, public $q: any) {}
 
   createNewUser(newUser) {
@@ -17,6 +15,3 @@ class Users {
     return dfd.promise;
   }
 }
-
-export default angular.module('app.users', [])
-    .service('users', Users)

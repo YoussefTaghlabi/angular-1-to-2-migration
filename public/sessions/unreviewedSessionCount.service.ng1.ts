@@ -1,6 +1,4 @@
-import * as angular from 'angular'
-
-class UnreviewedSessionCount {
+export class UnreviewedSessionCountService {
   value: any;
 
   constructor(public sessions: any, public currentIdentity: any) {}
@@ -11,6 +9,3 @@ class UnreviewedSessionCount {
     })
   }
 }
-
-export default angular.module('app.unreviewedSessionCount', [])
-  .service('unreviewedSessionCount', UnreviewedSessionCount)

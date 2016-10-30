@@ -3,6 +3,8 @@ import 'reflect-metadata'
 import 'zone.js'
 
 import * as angular from 'angular'
+import { upgradeAdapter } from './upgradeAdapter'
+import config from './app.config'
 
 // Components
 import adminLoginComponent from './admin/adminLogin.component'
@@ -21,38 +23,23 @@ import sessionDetailWithVotesComponent from './sessions/sessionDetailWithVotes.c
 import detailPanelComponent from './components/detailPanel.component'
 import profileComponent from './profile/profile.component'
 
-// Services
-import unreviewedSessionCountService from './sessions/unreviewedSessionCount.service'
-import sessionsService from './sessions/sessions.service'
-import nameParserService from './admin/nameParser.service'
-import authService from './security/auth.service'
-import currentIdentityService from './security/currentIdentity.service'
-import usersService from './security/users.service'
-
 // Filters
 import talkDurationFilter from './components/talkDuration.filter'
 
 // Directives
 import zoominDirective from './components/zoomin.directive'
 
-// Routes
-import config from './app.config'
-
-// 3rd party
-import toastr from './toastr/toastr'
-
-// Angular 2 uprade adapter
-import {upgradeAdapter} from './upgradeAdapter'
+import { toastrService, nameParserService } from './downgrades'
+import { authService, currentIdentityService, usersService, sessionsService, unreviewedSessionCountService } from './upgrades'
 
 // Bootstrap the app
 angular.element(document).ready(() => {
-  // angular.bootstrap(document.body, ['app'])
   upgradeAdapter.bootstrap(document.documentElement, ['app']);
 })
 
 export default angular.module('app', [
   'ngRoute',
-  toastr.name,
+  toastrService.name,
   adminLoginComponent.name,
   resultsComponent.name,
   createUsersComponent.name,

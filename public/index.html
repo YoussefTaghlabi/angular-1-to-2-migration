@@ -2,14 +2,41 @@
 <html>
 <head>
   <title>ng-conf Lightning Talks</title>
-  <base href="/">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
   <link rel="stylesheet" href="/styles.css">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    [id^="NG2_UPGRADE_"] {
+      display: block;
+      border: solid 3px red;
+      margin-top: 10px;
+    }
+
+    [id^="NG2_UPGRADE_"]::before {
+      content: "A 2";
+      background-color: red;
+      color: white;
+      font-weight: bold;
+    }
+
+    :not(ng-view):not([id^="NG2_UPGRADE_"]):not(a):not(abbr):not(address):not(area):not(article):not(aside):not(audio):not(b):not(base):not(bdi):not(bdo):not(blockquote):not(body):not(br):not(button):not(canvas):not(caption):not(cite):not(code):not(col):not(colgroup):not(command):not(datalist):not(dd):not(del):not(details):not(dfn):not(div):not(dl):not(doctype):not(dt):not(em):not(embed):not(fieldset):not(figcaption):not(figure):not(footer):not(form):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(head):not(header):not(hr):not(html):not(i):not(iframe):not(img):not(input):not(ins):not(kbd):not(keygen):not(label):not(legend):not(li):not(link):not(main):not(map):not(mark):not(menu):not(meta):not(meter):not(nav):not(noscript):not(object):not(ol):not(optgroup):not(option):not(output):not(p):not(param):not(pre):not(progress):not(q):not(rp):not(rt):not(ruby):not(s):not(samp):not(script):not(section):not(select):not(small):not(source):not(span):not(strong):not(style):not(sub):not(summary):not(sup):not(table):not(tbody):not(td):not(textarea):not(tfoot):not(th):not(thead):not(time):not(title):not(tr):not(track):not(u):not(ul):not(video):not(wbr){
+      display: block;
+      border: solid 3px darkgreen;
+      margin-top: 10px;
+      padding: 5px;
+    }
+
+    :not(ng-view):not([id^="NG2_UPGRADE_"]):not(a):not(abbr):not(address):not(area):not(article):not(aside):not(audio):not(b):not(base):not(bdi):not(bdo):not(blockquote):not(body):not(br):not(button):not(canvas):not(caption):not(cite):not(code):not(col):not(colgroup):not(command):not(datalist):not(dd):not(del):not(details):not(dfn):not(div):not(dl):not(doctype):not(dt):not(em):not(embed):not(fieldset):not(figcaption):not(figure):not(footer):not(form):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(head):not(header):not(hr):not(html):not(i):not(iframe):not(img):not(input):not(ins):not(kbd):not(keygen):not(label):not(legend):not(li):not(link):not(main):not(map):not(mark):not(menu):not(meta):not(meter):not(nav):not(noscript):not(object):not(ol):not(optgroup):not(option):not(output):not(p):not(param):not(pre):not(progress):not(q):not(rp):not(rt):not(ruby):not(s):not(samp):not(script):not(section):not(select):not(small):not(source):not(span):not(strong):not(style):not(sub):not(summary):not(sup):not(table):not(tbody):not(td):not(textarea):not(tfoot):not(th):not(thead):not(time):not(title):not(tr):not(track):not(u):not(ul):not(video):not(wbr)::before {
+      content: "A 1";
+      background-color: darkgreen;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
 
   <!-- 3rd party -->
-  <script src="/vendors.bundle.js"></script>
+  <script src="vendors.bundle.js"></script>
   <script>
     (function(orig) {
       angular.modules = [];
@@ -27,3 +54,4 @@
   <ng-view></ng-view>
 </body>
 </html>
+
