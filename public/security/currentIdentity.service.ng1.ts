@@ -1,6 +1,4 @@
-import * as angular from 'angular'
-
-class CurrentIdentity {
+export class CurrentIdentityService {
   currentUser: any;
 
   constructor(public $http: any, public $q: any) {
@@ -33,5 +31,3 @@ class CurrentIdentity {
   }
 }
 
-export default angular.module('app.currentIdentity', [])
-  .service('currentIdentity', CurrentIdentity);

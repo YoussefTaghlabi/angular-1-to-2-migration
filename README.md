@@ -184,7 +184,24 @@ This Step by Step migration project is based on [Joe Eames angular migration app
             * Create an upgradeAdapter singleton
         * Manually bootstrap Angular 1 (no more ng-app, we took care of this in Phase 1: Step 7)
 
-* Step 3: Identifying Services to port 
+* **Step 3: Dependency Injection**
+    * Exposing Angular 2 services into Angular 1 components and vice-versa
+    * Start with services having the least Angular 1 dependencies first 
+    * To use an **Angular 1 Service** in Angular 2 and Angular 1 Components
+        * Upgrade the Angular 1 Service using `upgradeAdapter.upgradeNg1Provider`
+        * Use it in Angular 2 Components Constructor using `@inject` as:
+            * `@Inject(‘serviceName’) public servicePropertyName: serviceClassName`
+        * Use it in Angular 1 Components Constructor as: 
+            * `public servicePropertyName: serviceClassName`
+    * To use an **Angular 2 Service** in Angular 2 and Angular 1 Components
+        * Add `@Injectable() decorator` to the Angular 2 Service class
+        * Add the Angular 2 Service as a provider to the Angular 2 App Module
+        * Downgrade the Angular 2 Service using `upgradeAdapter.downgradeNg1Provider`
+        * Use it in Angular 2 Components Constructor: 
+            * `public servicePropertyName: serviceClassName`
+        * Use it in Angular 1 Components Constructor: 
+            * `public serviceName: any`
+        
 * Step 4: Identifying Components to port 
 
 ## Terminology 

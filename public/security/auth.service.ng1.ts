@@ -1,6 +1,4 @@
-import * as angular from 'angular'
-
-class Auth {
+export class AuthService {
   constructor (
       public $q: any,
       public $http: any,
@@ -64,6 +62,3 @@ class Auth {
     })
   }
 }
-
-export default angular.module('app.auth', [])
-    .service('auth', Auth)

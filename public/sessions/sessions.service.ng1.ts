@@ -1,6 +1,4 @@
-import * as angular from 'angular'
-
-class Sessions {
+export class SessionsService {
   constructor(public $http: any, public $q: any) {}
 
   getSessionsByUser(userId) {
@@ -45,6 +43,3 @@ class Sessions {
     return this.$http.get(`/api/users/${userId}/unreviewedSessionCount`);
   }
 }
-
-export default angular.module('app.sessions', [])
-  .service('sessions', Sessions)
