@@ -80,7 +80,7 @@ export default ($routeProvider) => {
       }
     })
     .when('/login', {
-      template: '<login></login>',
+      template: '<login-ng1></login-ng1><login></login>',
       resolve: {
         currentAuth: routeResolvers.waitForAuth
       }

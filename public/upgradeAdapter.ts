@@ -1,4 +1,11 @@
 import { UpgradeAdapter } from '@angular/upgrade';
-import AppModule from './app.module'
+import { NgModule } from '@angular/core';
 
-export let upgradeAdapter = new UpgradeAdapter(AppModule);
+@NgModule({})
+
+// Bypass upgradeNg1Component cyclical problem
+// https://github.com/angular/angular/issues/11069
+class DummyModule{}
+
+
+export let upgradeAdapter = new UpgradeAdapter(DummyModule);

@@ -27,3 +27,5 @@ upgradeAdapter.upgradeNg1Provider('unreviewedSessionCount')
 export let unreviewedSessionCountService = angular.module('app.unreviewedSessionCount', [])
     .service('unreviewedSessionCount', UnreviewedSessionCountService)
 
+export let DetailPanelComponent = upgradeAdapter.upgradeNg1Component('detailPanel')
+

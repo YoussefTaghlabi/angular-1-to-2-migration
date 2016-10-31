@@ -19,7 +19,7 @@ export default angular.module('app.detailPanel', [])
         templateUrl: '/components/detailPanel.html',
         bindings: {
           title: '@',
-          initialCollapsed: '@collapsed'
+          initialCollapsed: '@'
         },
         controller: detailPanelCtrl
     })
