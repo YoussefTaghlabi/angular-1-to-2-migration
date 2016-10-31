@@ -14,11 +14,9 @@ import userListComponent from './admin/userList.component'
 import userDetailsComponent from './admin/userDetails.component'
 import navComponents from './nav/nav.component'
 import logoutComponent from './security/logout.component'
-import loginComponent from './security/login.component'
+import loginComponentNg1 from './security/login.component.ng1'
 import homeComponent from './home/home.component'
 import createNewSessionComponent from './home/createNewSession.component'
-import unreviewedTalkComponent from './home/unreviewedTalk.component'
-import sessionDetailComponent from './sessions/sessionDetail.component'
 import sessionDetailWithVotesComponent from './sessions/sessionDetailWithVotes.component'
 import detailPanelComponent from './components/detailPanel.component'
 import profileComponent from './profile/profile.component'
@@ -29,12 +27,19 @@ import talkDurationFilter from './components/talkDuration.filter'
 // Directives
 import zoominDirective from './components/zoomin.directive'
 
-import { toastrService, nameParserService } from './downgrades'
+import { toastrService, nameParserService, loginComponent, unreviewedTalkComponent, sessionDetailComponent } from './downgrades'
 import { authService, currentIdentityService, usersService, sessionsService, unreviewedSessionCountService } from './upgrades'
+
+import AppModule from './app.module'
+
+// Bypass upgradeNg1Component cyclical problem
+// https://github.com/angular/angular/issues/11069
+upgradeAdapter['ng2AppModule'] = AppModule
 
 // Bootstrap the app
 angular.element(document).ready(() => {
-  upgradeAdapter.bootstrap(document.documentElement, ['app']);
+  upgradeAdapter.bootstrap(document.documentElement, ['app'])
+  console.log(upgradeAdapter)
 })
 
 export default angular.module('app', [
@@ -48,6 +53,7 @@ export default angular.module('app', [
   nameParserService.name,
   navComponents.name,
   logoutComponent.name,
+  loginComponentNg1.name,
   loginComponent.name,
   authService.name,
   currentIdentityService.name,

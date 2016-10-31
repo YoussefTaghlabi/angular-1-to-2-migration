@@ -28,5 +28,5 @@
 
 <h2>Your Other Sessions</h2>
 <div ng-repeat="session in $ctrl.userSessions">
-  <session-detail session="session" initial-collapsed="false"></session-detail>
+  <session-detail [session]="session" [initial-collapsed]="false"></session-detail>
 </div>

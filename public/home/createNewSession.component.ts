@@ -23,7 +23,6 @@ class createNewSessionCtrl {
     }
 
     this.sessions.createNewSession(newUserSession).then((response) => {
-      console.log(response);
       this.userSessions.push(response.data);
     })
   }

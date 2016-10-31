@@ -4,7 +4,7 @@
   "description": "lightning talk voting app",
   "main": "index.js",
   "scripts": {
-    "start": "node ./server/server.js",
+    "start": "concurrently --prefix \"[{name}]\" --names \"BUILD,SERVER\" -c \"bgBlue.bold,bgMagenta.bold\" \"webpack --watch\" \"node ./server/server.js\"",
     "test": "karma start",
     "build": "webpack --watch",
     "tsc": "tsc -p . -w --outDir build"
@@ -50,6 +50,7 @@
     "@types/node": "^6.0.45",
     "@types/toastr": "^2.1.30",
     "@types/webpack": "^1.12.35",
+    "concurrently": "^3.1.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.3",
